@@ -1,0 +1,1 @@
+java -jar target\spring-boot-country-0.0.1-SNAPSHOT.jar
