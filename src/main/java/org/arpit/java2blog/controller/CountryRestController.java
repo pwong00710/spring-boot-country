@@ -2,6 +2,7 @@ package org.arpit.java2blog.controller;
 
 import java.util.List;
 
+import org.arpit.java2blog.dto.CountryList;
 import org.arpit.java2blog.model.Country;
 import org.arpit.java2blog.model.Status;
 import org.arpit.java2blog.service.CountryService;
@@ -22,10 +23,10 @@ public class CountryRestController {
 	private static final int exit_failure = 1;
 
 	@RequestMapping(value = "/rest/getAllCountries", method = RequestMethod.GET, headers = "Accept=application/json")
-	public List<Country> getCountries() {
+	public CountryList getCountries() {
 
 		List<Country> listOfCountries = countryService.getAllCountries();
-		return listOfCountries;
+		return new CountryList(listOfCountries);
 	}
 	
 	@RequestMapping(value = "/rest/v/getAllCountries", method = RequestMethod.GET, produces = "application/org.arpit.java2blog.v1+json")
@@ -36,10 +37,10 @@ public class CountryRestController {
 	}
 	
 	@RequestMapping(value = "/rest/v/getAllCountries", method = RequestMethod.GET, produces = "application/org.arpit.java2blog.v2+json")
-	public List<Country> getCountriesV2() {
+	public CountryList getCountriesV2() {
 
 		List<Country> listOfCountries = countryService.getAllCountries();
-		return listOfCountries;
+		return new CountryList(listOfCountries);
 	}	
 	
 
